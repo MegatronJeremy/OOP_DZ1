@@ -1,7 +1,5 @@
 #include "pilot.h"
 
-string Pilot::strStatus[] = {"L", "N"};
-
 void Pilot::out() const {
-    cout << name << "(" << hrs << ")" << "-" << strStatus[stat];
+    cout << name << "(" << hrs << ")" << "-" << (stat ? 'L' : 'N');
 }

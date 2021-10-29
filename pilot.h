@@ -6,28 +6,24 @@
 
 using namespace std;
 
-enum Status {L, N};
-
 class Pilot {
 public:
-    Pilot(string n, int h, Status s = N) : name(n), hrs(h), stat(s) {};
+    Pilot(string n, int h, bool s = false) : name(n), hrs(h), stat(s) {};
     Pilot(Pilot &p) = delete;
 
     string getName() const { return name; }
     int getHrs() const { return hrs; }
-    Status getStat() const { return stat; }
+    bool getStat() const { return stat; }
 
     void addHrs(int h) { hrs += h; }
-    void chStat(Status s) { stat = s; }
+    void chStat(bool s) { stat = s; }
 
     void out() const;
 
 private:
     string name;
     int hrs;
-    Status stat;
-
-    static string strStatus[];
+    bool stat;
 };
 
 #endif //OOP_DZ1_PILOT_H
