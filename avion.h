@@ -5,23 +5,24 @@
 
 class Avion {
 public:
-    Avion(string n, int m) : name(n), max(m) {};
+    Avion(string n, int c) : name(n), cap(c) {}
     Avion(Avion &a) = delete;
 
     string getName() const { return name; }
-    Pilot &getCapt() const { return *captain; }
-    Pilot &getCop() const { return *copilot; }
-    int getMax() const { return max;}
+    Pilot *getCapt() const { return captain; }
+    Pilot *getCop() const { return copilot; }
+
+    int getCap() const { return cap; }
 
     bool setCapt(Pilot &capt);
-    void setCop(Pilot &cop) { copilot = &cop, cop.chStat(Status::L); };
+    void setCop(Pilot &cop) { copilot = &cop, cop.chStat(true); }
 
     void out() const;
 
 private:
     string name;
     Pilot *captain = nullptr, *copilot = nullptr;
-    int max;
+    int cap;
 };
 
 

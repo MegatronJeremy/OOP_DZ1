@@ -3,6 +3,13 @@
 
 #include "avion.h"
 
+struct NodeA {
+    Avion *avion;
+    NodeA *next;
+
+    NodeA(Avion &a, NodeA *p = nullptr) : avion(&a), next(p) {}
+};
+
 class FlotaAviona {
 public:
     FlotaAviona(string n) : name(n) {};
@@ -12,25 +19,17 @@ public:
 
     void addPlane(Avion &a);
 
-    int getNOP() const { return fleetSize; }
-    int getMaxPas() const { return maxPas; }
-    Avion *getMaxPl() const { return maxPl; }
+    int getSize() const;
+    int getMaxCap() const;
+    Avion *getMaxPl() const;
+    void remove(string n);
+    NodeA *getRange(int minC, int maxC) const;
 
     void out() const;
 
 private:
-    struct Node {
-        Avion *avion;
-        Node *next;
-
-        Node(Avion &a, Node *p = nullptr) { avion = &a, next = p; }
-    };
-
     string name;
-    int fleetSize = 0;
-    int maxPas = 0;
-    Avion *maxPl = nullptr;
-    Node *fleet = nullptr;
+    NodeA *fleet = nullptr;
 };
 
 

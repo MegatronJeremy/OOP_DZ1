@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "flotaAviona.h"
+#include "Arhiva.h"
 
 int main() {
     FlotaAviona f1("Britanska armada");
@@ -25,7 +24,25 @@ int main() {
     f1.addPlane(a2);
     f1.addPlane(a3);
 
-    f1.out();
+    Let l1("Suscepan", "Kosovo", a3);
+    Let l2("Birmingham", "Hell", a2);
+
+    Arhiva arh1;
+    arh1.addL(l1);
+    arh1.addL(l2);
+    Let l3 = l2;
+
+    arh1.out();
+    f1.getMaxPl()->out();
+
+    NodeA *r1 = f1.getRange(700, 760);
+    NodeL *rl1 = arh1.getDestFl("Hell");
+    NodeL *rl2 = arh1.getStartFl("Suscepan");
+    NodeL *rl3 = arh1.getStartAndDestFl("Birmingham", "Hell");
+
+    cout << endl << f1.getMaxCap() << " " << f1.getSize() << endl;
+    f1.remove("Ed Force One");
+    cout << f1.getMaxCap() << " "<<f1.getSize() << endl;
     f1.getMaxPl()->out();
 
     return 0;

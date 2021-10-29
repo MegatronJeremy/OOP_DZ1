@@ -2,13 +2,13 @@
 
 bool Avion::setCapt(Pilot &capt) {
     if (capt.getHrs() < 100) return false;
+    capt.chStat(true);
     captain = &capt;
-    capt.chStat(Status::L);
     return true;
 }
 
 void Avion::out() const {
-    cout << "AVION:" << name << " - " << max;
+    cout << "AVION:" << name << " - " << cap;
 
 //    cout << " KAPETAN:", captain->out(), cout << " KOPILOT:", copilot->out();
 }
