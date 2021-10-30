@@ -14,6 +14,7 @@ FlotaAviona::FlotaAviona(FlotaAviona &f) {
 
 FlotaAviona::FlotaAviona(FlotaAviona &&f) {
     name = f.name;
+    fleet = f.fleet;
     f.fleet = nullptr;
 }
 
