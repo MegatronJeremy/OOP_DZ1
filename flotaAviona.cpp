@@ -3,7 +3,6 @@
 FlotaAviona::FlotaAviona(FlotaAviona &f) {
     name = f.name;
 
-    NodeA *tail, *elem;
     for (NodeA *curr = f.fleet; curr; curr = curr->next) {
         fleet = new NodeA(*curr->avion, fleet);
     }
